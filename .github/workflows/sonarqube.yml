@@ -39,6 +39,9 @@ jobs:
       if: steps.composer-cache.outputs.cache-hit != 'true'
       run: composer install --prefer-dist --no-progress
 
+    - name: Update dependencies
+      run: composer update
+
     - name: Run phpunit
       run: vendor/bin/phpunit
 
